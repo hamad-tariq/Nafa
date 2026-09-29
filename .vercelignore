@@ -1,0 +1,8 @@
+data/
+__pycache__/
+.venv/
+test_core.py
+.env*
+venv/
+updatedUI/
+.kombai/

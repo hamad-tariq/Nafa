@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fund Board</title>
+<meta name="description" content="Mutual fund prices, returns, risk and costs, updated daily.">
+<meta name="board-token" content="__TOKEN__">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%228%22 fill=%22%230e5e48%22/%3E%3Cpath d=%22M7 22l6-7 5 4 7-9%22 fill=%22none%22 stroke=%22white%22 stroke-width=%223%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400;600;700&family=Atkinson+Hyperlegible+Next:wght@400;600;700&family=Familjen+Grotesk:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="/assets/app.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.35.3/plotly.min.js" defer></script>
+<script src="/assets/app.js" defer></script>
+</head>
+<body>
+<header class="top">
+  <div class="wrap top-in">
+    <a class="brand" href="#/">Fund Board</a>
+    <nav aria-label="Main">
+      <a href="#/" data-view="today">Today</a>
+      <a href="#/funds" data-view="funds">Funds</a>
+      <a href="#/compare" data-view="compare">Compare</a>
+    </nav>
+    <div class="sync" id="sync">
+      <span class="sync-text" aria-live="polite"><i class="sync-dot" aria-hidden="true"></i><span id="asof"></span><span id="sync-text"></span></span>
+      <button type="button" class="btn" id="update-btn" disabled>
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 0 0-14.3-4.9L4 8M4 4v4h4M4 13a8 8 0 0 0 14.3 4.9L20 16m0 4v-4h-4"/></svg>
+        <span id="update-label">Update prices</span>
+      </button>
+    </div>
+  </div>
+</header>
+<div class="wrap"><p class="notice" id="notice" role="status" hidden></p></div>
+<main class="wrap" id="main"><noscript>Fund Board needs JavaScript to show prices.</noscript></main>
+<footer class="wrap notes">
+  <details id="method">
+    <summary>How these figures are calculated</summary>
+    <p>Money market and income fund returns are annualized (MUFAP convention): 10% FYTD means a yearly rate of 10%, not 10% earned since July. Other funds show absolute returns. Compare funds within a category and on the same basis. FY is Pakistan's fiscal year, July to June.</p>
+    <p>Growth of 100, last move, 1 year, volatility and drawdown use a total-return index rebuilt from each fund's reported FYTD return, so dividend payouts don't look like losses. They cover only the price history collected so far, which varies by fund.</p>
+    <p>Rank is a fund's position by FYTD return among funds in the same category that quote returns the same way.</p>
+  </details>
+  <p>For information only, not investment advice. Past returns don't guarantee future returns.</p>
+</footer>
+<script id="data" type="application/json">__DATA__</script>
+</body>
+</html>
